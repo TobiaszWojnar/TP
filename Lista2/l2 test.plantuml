@@ -1,0 +1,257 @@
+@startuml
+
+title __InvoiceApplication Class Diagram__\n
+
+      class model.Client {
+        - address : String
+        - city : String
+        - clientId : String
+        - name : String
+        - nip : String
+        - postal : String
+        + model.Client()
+        + getAddress()
+        + getCity()
+        + getId()
+        + getName()
+        + getNip()
+        + getPostal()
+      }
+
+      interface dao.ClientDao {
+          {abstract} + add()
+          {abstract} + checkIfInExist()
+          {abstract} + delete()
+          {abstract} + get()
+          {abstract} + getAll()
+      }
+
+
+
+      class dao.memory.ClientMemoryDao {
+          - clientList : List<model.Client>
+          + dao.memory.ClientMemoryDao()
+          + add()
+          + checkIfInExist()
+          + delete()
+          + get()
+          + getAll()
+      }
+
+
+      class operations.ClientOperations {
+          + operations.ClientOperations()
+          + add()
+          + delete()
+      }
+
+
+
+      class printers.ClientPrinter {
+          + printers.ClientPrinter()
+          + print()
+          + print()
+          + printAll()
+      }
+
+      class gui.CommandLineMenu {
+          - reader : BufferedReader
+          + gui.CommandLineMenu()
+          + run()
+          - articleMenu()
+          - clientMenu()
+          - fakturaEditMenu()
+          - fakturaMenu()
+      }
+
+      class model.Faktura {
+          - buyerId : String
+          - dateOfIssue : LocalDate
+          - fakturaItems : List<model.FakturaItem>
+          - fakturaNr : String
+          - sellerId : String
+          + model.Faktura()
+          + getBuyerId()
+          + getDateOfIssue()
+          + getFakturaId()
+          + getId()
+          + getItems()
+          + getSellerId()
+          + getStatus()
+          + setFakturaItems()
+          + setStatus()
+      }
+
+      enum Status {
+        PAID
+        UNPAID
+      }
+
+      interface dao.FakturaDao {
+          {abstract} + add()
+          {abstract} + checkIfInExist()
+          {abstract} + delete()
+          {abstract} + get()
+          {abstract} + getAll()
+          {abstract} + getAllForClient()
+      }
+
+      class model.FakturaItem {
+          - fakturaId : String
+          - fakturaItemId : String
+          - quantity : float
+          + model.FakturaItem()
+          + getBruttoValue()
+          + getFakturaId()
+          + getFakturaItemId()
+          + getNettoValue()
+          + getQuantity()
+          + getTaxValue()
+      }
+
+      interface dao.FakturaItemDao {
+          {abstract} + add()
+          {abstract} + checkIfInExist()
+          {abstract} + delete()
+          {abstract} + deleteAllForFaktura()
+          {abstract} + get()
+          {abstract} + getByFakturaId()
+          {abstract} + getNextId()
+      }
+
+      class dao.memory.FakturaItemMemoryDao {
+          - allFakturaItems : List<model.FakturaItem>
+          + dao.memory.FakturaItemMemoryDao()
+          + add()
+          + checkIfInExist()
+          + delete()
+          + deleteAllForFaktura()
+          + get()
+          + getByFakturaId()
+          + getNextId()
+      }
+
+      class operations.FakturaItemOperations {
+          + operations.FakturaItemOperations()
+          + add()
+          + delete()
+      }
+
+      class printers.FakturaItemPrinter {
+          {static} - CURRENCY_FORMAT : DecimalFormat
+          + printers.FakturaItemPrinter()
+          + print()
+          + printItemsForFaktura()
+          {static} - formatCurrency()
+      }
+
+      class dao.memory.FakturaMemoryDao {
+          - fakturaArrayList : List<model.Faktura>
+          + dao.memory.FakturaMemoryDao()
+          + add()
+          + checkIfInExist()
+          + delete()
+          + get()
+          + getAll()
+          + getAllForClient()
+      }
+
+      class operations.FakturaOperations {
+          + operations.FakturaOperations()
+          + add()
+          + checkIfInExist()
+          + delete()
+          + print()
+          + print()
+          + printAll()
+          + printAllFakturaForClient()
+      }
+
+      class InvoiceApplication {
+          + InvoiceApplication()
+          {static} + main()
+          + run()
+      }
+
+      class model.Product {
+          - nettoPrice : float
+          - productId : String
+          - productName : String
+          - taxRate : float
+          + model.Product()
+          + getNettoPrice()
+          + getProductId()
+          + getProductName()
+          + getTaxRate()
+      }
+
+      interface dao.ProductDao {
+          {abstract} + add()
+          {abstract} + checkIfIdExist()
+          {abstract} + delete()
+          {abstract} + getAll()
+          {abstract} + getById()
+      }
+
+      class dao.memory.ProductMemoryDao {
+          - productList : List<model.Product>
+          + dao.memory.ProductMemoryDao()
+          + add()
+          + checkIfIdExist()
+          + delete()
+          + getAll()
+          + getById()
+      }
+
+      class test.ProductMemoryDaoTest {
+          ~ add()
+          ~ checkIfIdExist()
+          ~ delete()
+          ~ getAll()
+          ~ getById()
+      }
+
+      class operations.ProductOperations {
+          + operations.ProductOperations()
+          + add()
+          + delete()
+          + print()
+          + print()
+          + printAll()
+      }
+
+
+  dao.memory.ClientMemoryDao .up.|> dao.ClientDao
+  operations.ClientOperations o-- dao.ClientDao : clientDao
+  printers.ClientPrinter o-- dao.ClientDao : clientDao
+  gui.CommandLineMenu o-- operations.ClientOperations : clientOperations
+  gui.CommandLineMenu o-- printers.ClientPrinter : clientPrinter
+  gui.CommandLineMenu o-- operations.FakturaItemOperations : fakturaItemOp
+  gui.CommandLineMenu o-- operations.FakturaOperations : fakturaOperations
+  gui.CommandLineMenu o-- operations.ProductOperations : productOperations
+  model.Faktura o-- model.Faktura.Status : status
+  model.Faktura +-down- model.Faktura.Status
+  model.FakturaItem -up-|> model.Product
+  dao.memory.FakturaItemMemoryDao .up.|> dao.FakturaItemDao
+  operations.FakturaItemOperations o-- dao.FakturaItemDao : fakturaItemDao
+  operations.FakturaItemOperations o-- dao.ProductDao : productDao
+  printers.FakturaItemPrinter o-- dao.FakturaItemDao : fakturaItemDao
+  dao.memory.FakturaMemoryDao .up.|> dao.FakturaDao
+  operations.FakturaOperations o-- dao.ClientDao : clientDao
+  operations.FakturaOperations o-- printers.ClientPrinter : clientPrinter
+  operations.FakturaOperations o-- dao.FakturaDao : fakturaDao
+  operations.FakturaOperations o-- dao.FakturaItemDao : fakturaItemDao
+  operations.FakturaOperations o-- printers.FakturaItemPrinter : fakturaItemPrinter
+  InvoiceApplication o-- gui.CommandLineMenu : commandLineMenu
+  dao.memory.ProductMemoryDao .up.|> dao.ProductDao
+  operations.ProductOperations o-- dao.ProductDao : productDao
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
