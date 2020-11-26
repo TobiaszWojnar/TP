@@ -53,7 +53,7 @@ public class FakturaItemOperations {
      */
     public void add(String fakturaId, BufferedReader reader) {
         try {
-            System.out.println("Add article to faktura\nEnter article id:");
+            System.out.println("Add product to faktura\nEnter article id:");
             String articleId = reader.readLine();
             if (productDao.checkIfIdExist(articleId)) {
                 System.out.println("Enter quantity:");
