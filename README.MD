@@ -40,7 +40,7 @@ Setup and detailed requirements for each list are in their folder. Below are bri
         * Create one application using tool above
     * #### What I Learned
 
-* ##### [Lab 2 - Application issuing invoices with GRASP methodology](Lab/List\ 2)
+* ##### [Lab 2 - Application issuing invoices with GRASP methodology](Lab/List-2)
     * #### Requirements
         * Application should enable issuing invoices with many items, each item has product, it's price and quantity.
         * Application should enable adding and showing invoices for specific clients.
