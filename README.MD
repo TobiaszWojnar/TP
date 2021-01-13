@@ -21,9 +21,9 @@ Course curriculum:
 
 * [List 1 - Use cases](cw/original/List 1.pdf)
 * [List 2 - UML](cw/original/List 2.pdf)
-* [List 3 - Design patterns](cw/original/List 3.pdf)
-* [List 4 - Design patterns](cw/original/List 4.pdf)
-* [List 5 - System analysis](cw/original/List 5.pdf)
+* [List 3 - Design patterns](Cw/original/List 3.pdf)
+* [List 4 - Design patterns](Cw/original/List 4.pdf)
+* [List 5 - System analysis](Cw/original/List 5.pdf)
 
 ### Laboratory
 [Wojciech Macyna, PhD](https://cs.pwr.edu.pl/macyna/)
@@ -40,7 +40,7 @@ Setup and detailed requirements for each list are in their folder. Below are bri
         * Create one application using tool above
     * #### What I Learned
 
-* ##### [Lab 2 - Application issuing invoices with GRASP methodology](lab/List 2)
+* ##### [Lab 2 - Application issuing invoices with GRASP methodology](Lab/List 2)
     * #### Requirements
         * Application should enable issuing invoices with many items, each item has product, it's price and quantity.
         * Application should enable adding and showing invoices for specific clients.
