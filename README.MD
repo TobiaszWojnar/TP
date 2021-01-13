@@ -14,16 +14,33 @@ Course curriculum:
 * Hibernate framework
 * Spring framework
 
+### Supplemental instruction
+[Anna Lauks-Dutka, PhD](https://cs.pwr.edu.pl/lauks/)
+
+5 List of exercises.
+
+* [List 1 - Use cases](cw/original/List 1.pdf)
+* [List 2 - UML](cw/original/List 2.pdf)
+* [List 3 - Design patterns](cw/original/List 3.pdf)
+* [List 4 - Design patterns](cw/original/List 4.pdf)
+* [List 5 - System analysis](cw/original/List 5.pdf)
+
 ### Laboratory
 [Wojciech Macyna, PhD](https://cs.pwr.edu.pl/macyna/)
 
 Setup and detailed requirements for each list are in their folder. Below are brief notes on each exercise.
 
-* [List 1 -  ](https://github.com/TobiaszWojnar/TP)
+* ##### Lab 1
     * #### Requirements
+        * Complete tutorial for `mvn`
+        * Complete tutorial for `git`
+        * Complete tutorial for `PMD` tool
+        * Complete tutorial for `Checkstyle` tool
+        * Complete tutorial for chosen `UML` tool
+        * Create one application using tool above
     * #### What I Learned
 
-* [List 2 -  application issuing invoices with GRASP methodology](https://github.com/TobiaszWojnar/TP)
+* ##### [Lab 2 - Application issuing invoices with GRASP methodology](lab/List 2)
     * #### Requirements
         * Application should enable issuing invoices with many items, each item has product, it's price and quantity.
         * Application should enable adding and showing invoices for specific clients.
@@ -42,25 +59,27 @@ Setup and detailed requirements for each list are in their folder. Below are bri
         * Dividing project with packages.
         * GRASP methodology.
 
-* [List 3 -  ](https://github.com/TobiaszWojnar/TP)
+* ##### [Lab 3 - Design patterns](https://code.google.com/archive/p/javatrainings/source/default/source?page=5)
+    
+    Based on [J. Pereiry's java training from Google Code Archive](https://code.google.com/archive/p/javatrainings/source/default/source?page=5)
+    * ##### Exercises
+        * Adapter pattern.
+        * Builder pattern.
+        * Singleton pattern.
+        * Factory Method pattern.
+        * Abstract Factory pattern.
+        * Composite pattern.
+        * State pattern.
+        * Decorator pattern.
+        * Facade pattern.
+
+* ##### [Lab 4 -  Chinese checkers application](https://github.com/TobiaszWojnar/Chinese-checkers/tree/v1.1)
     * ##### Requirements
+        * 
     * ##### What I Learned
 
-* [List 4 -  Chinese checkers application](https://github.com/TobiaszWojnar/Chinese-checkers/tree/v1.1)
+* ##### [Lab 5 -  Chinese checkers in Spring and web app](https://github.com/TobiaszWojnar/Chinese-checkers)
     * ##### Requirements
+        * Extend **Lab 4** with saving to database using Spring framework
+        * Create web interface in JavaScript or JSP.
     * ##### What I Learned
-
-* [List 5 -  Chinese checkers in Spring and web app](https://github.com/TobiaszWojnar/Chinese-checkers)
-    * ##### Requirements
-    * ##### What I Learned
-
-### Supplemental instruction
-[Anna Lauks-Dutka, PhD](https://cs.pwr.edu.pl/lauks/)
-
-5 List of exercises.
-
-* [Lab 1 - Use cases](cw/original/List 1.pdf)
-* [Lab 2 - UML](cw/original/List 2.pdf)
-* [Lab 3 - Design patterns](cw/original/List 3.pdf)
-* [Lab 4 - Design patterns](cw/original/List 4.pdf)
-* [Lab 5 - System analysis](cw/original/List 5.pdf)
