@@ -19,8 +19,8 @@ Course curriculum:
 
 5 List of exercises.
 
-* [List 1 - Use cases](cw/original/List 1.pdf)
-* [List 2 - UML](cw/original/List 2.pdf)
+* [List 1 - Use cases](Cw/original/List 1.pdf)
+* [List 2 - UML](Cw/original/List 2.pdf)
 * [List 3 - Design patterns](Cw/original/List 3.pdf)
 * [List 4 - Design patterns](Cw/original/List 4.pdf)
 * [List 5 - System analysis](Cw/original/List 5.pdf)
